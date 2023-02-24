@@ -2,16 +2,16 @@ pipeline {
     agent any
     // run docker compose up
     stages {
-        // install docker-compose
-        stage('Install docker-compose') {
-            steps {
-                sh '''
-                    sudo apt-get update
-                    sudo apt-get install -y python-pip
-                    sudo pip install docker-compose
-                '''
-            }
-        }
+        // // install docker-compose
+        // stage('Install docker-compose') {
+        //     steps {
+        //         sh '''
+        //             sudo apt-get update
+        //             sudo apt-get install -y python-pip
+        //             sudo pip install docker-compose
+        //         '''
+        //     }
+        // }
         
 
 
