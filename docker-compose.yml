@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - php-fpm
+
+  php-fpm:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/var/www/html
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: 1-17-2459
+      POSTGRES_PASSWORD: 1-17-2459
+      POSTGRES_DB: base1
+    ports:
+      - "5432:5432"
