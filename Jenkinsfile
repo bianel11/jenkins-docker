@@ -17,6 +17,12 @@ pipeline {
 
 
         stage('verify docker') {
+            withEnv(['PATH+DOCKER=/usr/local/bin', 'PATH=$PATH:~/.local/bin']) {
+                steps {
+                    sh 'docker --version'
+                    sh 'docker-compose --version'
+                }
+            }
             steps {
                 sh '''
                     docker --version
