@@ -1,32 +1,12 @@
 pipeline {
     agent any
     // run docker compose up
-    environment {
-        // DOCKER_HOST = 'tcp://localhost:2375'
-        // DOCKER_CERT_PATH = '/home/jenkins/.docker'
-        // DOCKER_TLS_VERIFY = '1'
-        PATH = "$PATH:/usr/local/bin"
-    }
     stages {
-        // // install docker-compose
-        // stage('Install docker-compose') {
-        //     steps {
-        //         sh '''
-        //             sudo apt-get update
-        //             sudo apt-get install -y python-pip
-        //             sudo pip install docker-compose
-        //         '''
-        //     }
-        // }
-        
-
-
-
         stage('verify docker') {
             steps {
                 sh '''
                     docker --version
-                    ./usr/bin/docker-compose --version
+                    /usr/local/bin/docker-compose --version
                 '''
             }
         }
@@ -37,7 +17,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'docker-compose up -d'
+                sh '/usr/local/bin/docker-compose up -d'
             }
         }
         // stage('Test') {
