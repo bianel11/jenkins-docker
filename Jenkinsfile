@@ -26,7 +26,7 @@ pipeline {
             steps {
                 sh '''
                     docker --version
-                    docker-compose --version
+                    ./usr/bin/docker-compose --version
                 '''
             }
         }
