@@ -1,6 +1,12 @@
 pipeline {
     agent any
     // run docker compose up
+    environment {
+        // DOCKER_HOST = 'tcp://localhost:2375'
+        // DOCKER_CERT_PATH = '/home/jenkins/.docker'
+        // DOCKER_TLS_VERIFY = '1'
+        PATH = "$PATH:/usr/local/bin"
+    }
     stages {
         // // install docker-compose
         // stage('Install docker-compose') {
@@ -17,8 +23,7 @@ pipeline {
 
 
         stage('verify docker') {
-            withEnv(['PATH+DOCKER=/usr/local/bin', 'PATH=$PATH:~/.local/bin']) {
-            // steps {
+            steps {
                 sh '''
                     docker --version
                     docker-compose --version
