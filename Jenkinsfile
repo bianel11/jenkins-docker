@@ -25,10 +25,5 @@ pipeline {
         //         sh 'docker-compose exec -T app npm run test'
         //     }
         // }
-        // stage('Deploy') {
-        //     steps {
-        //         sh 'docker-compose exec -T app npm run deploy'
-        //     }
-        // }
     }
 }
