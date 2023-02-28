@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    // run docker compose up
+    // run docker compose up comment
     stages {
         stage('verify docker') {
             steps {
