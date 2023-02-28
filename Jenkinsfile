@@ -6,13 +6,13 @@ pipeline {
             steps {
                 sh '''
                     docker --version
-                    /usr/local/bin/docker-compose --version
+                    docker-compose --version
                 '''
             }
         }
         stage('Build') {
             steps {
-                sh '/usr/local/bin/docker-compose up -d'
+                sh 'docker-compose up -d'
             }
         }
     }
