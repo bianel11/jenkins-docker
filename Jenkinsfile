@@ -5,14 +5,14 @@ pipeline {
         stage('verify docker') {
             steps {
                 sh '''
-                    docker --version
-                    docker-compose --version
+                    sudo docker --version
+                    sudo docker-compose --version
                 '''
             }
         }
         stage('Build') {
             steps {
-                sh 'docker-compose up -d'
+                sh 'sudo docker-compose up -d'
             }
         }
     }
